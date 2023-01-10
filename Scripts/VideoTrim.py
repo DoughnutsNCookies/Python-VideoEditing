@@ -31,7 +31,10 @@ def trim(pathName, outputName, start, end):
 # Gets all files from the directory
 # Creates a thread for each file to trim each video simultaneously
 def main():
-	files = getFileTimestamps("ToTrim/")
+	trimDir = "ToTrim/"
+	if ([True, False][int(input('Ensure that the ' + trimDir + ' folder only contains video and image files that are of THE SAME NAME\nPress 1 to continue, 0 to exit: '))]):
+		exit(0)
+	files = getFileTimestamps(trimDir)
 
 	threads = []
 	for file in files:
